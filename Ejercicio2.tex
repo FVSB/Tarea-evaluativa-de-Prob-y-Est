@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsmath}
+ \begin{document}
+ La funci\'on de densidad de un vector aleatorio continuo es $f(x, y) = xe^{-\left(x+y\right)}$ si $x \geq 0$, $y \geq 0$, en otro caso toma valor cero.
+ a) Funciones de distribuci\'on marginal:
+ La funci\'on de densidad marginal de $X$ es:
+ \begin{align*}
+f_X(x) &= \int_{0}^{\infty} f(x,y) dy \\
+&= \int_{0}^{\infty} xe^{-\left(x+y\right)} dy \\
+&= x\int_{0}^{\infty} e^{-\left(x+y\right)} dy \\
+&= xe^{-x} \int_{0}^{\infty} e^{-y} dy \\
+&= xe^{-x}.
+\end{align*}
+ La funci\'on de densidad marginal de $Y$ es:
+ \begin{align*}
+f_Y(y) &= \int_{0}^{\infty} f(x,y) dx \\
+&= \int_{0}^{\infty} xe^{-\left(x+y\right)} dx \\
+&= e^{-y} \int_{0}^{\infty} xe^{-x} dx \\
+&= e^{-y}.
+\end{align*}
+ b) Independencia y $\rho(X,Y)$:
+ Para determinar si las variables $X$ y $Y$ son independientes, comprobamos que la funci\'on de densidad conjunta es igual al producto de las funciones de densidad marginales:
+ \begin{align*}
+f(x,y) &= xe^{-\left(x+y\right)} \\
+&= (xe^{-x})(e^{-y}) \\
+&= f_X(x)f_Y(y).
+\end{align*}
+ Por tanto, las variables $X$ y $Y$ son independientes. 
+ El coeficiente de correlaci\'on $\rho(X,Y)$ se calcula como:
+ \begin{align*}
+\rho(X,Y) &= \frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}} \\
+&= \frac{\operatorname{E}[XY]-\operatorname{E}[X]\operatorname{E}[Y]}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}.
+\end{align*}
+ Tambi\'en podemos utilizar la definici\'on de $\rho(X,Y)$ en t\'erminos de $f(x,y)$:
+ \begin{align*}
+\rho(X,Y) &= \frac{\int_{0}^{\infty}\int_{0}^{\infty} xyf(x,y) dxdy - \operatorname{E}[X]\operatorname{E}[Y]}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}} \\
+&= \frac{\int_{0}^{\infty}\int_{0}^{\infty} xy(xe^{-\left(x+y\right)}) dxdy - (\operatorname{E}[X])^2}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}} \\
+&= \frac{\int_{0}^{\infty} x^2e^{-x} dx \int_{0}^{\infty} ye^{-y} dy - (\operatorname{E}[X])^2}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}} \\
+&= \frac{2 - 1}{\sqrt{1 \cdot 1}} \\
+&= 1.
+\end{align*}
+ Por tanto, $\rho(X,Y) = 1$.
+\end{document}
